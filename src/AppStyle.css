@@ -1,0 +1,11 @@
+:root {
+    --font-color-1: white;
+    --font-color-2: white;
+    --background-color-1: lightgray;
+    --background-color-2: gray;
+    --header-footer-border-color: black;
+    --main-divs-color-1: lightgray;
+    --main-divs-color-2: gray;
+    --content-font: 'Roboto Condensed', sans-serif;
+    --headers-font: 'Sacramento', cursive;
+}

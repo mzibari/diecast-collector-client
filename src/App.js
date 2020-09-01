@@ -1,9 +1,11 @@
 import React from 'react';
+import { Route } from 'react-router-dom'
+import Nav from './Nav/Nav'
 
 function App() {
   return (
     <main className='App'>
-      App Works
+      <Route component={Nav} />
     </main>
   );
 }
