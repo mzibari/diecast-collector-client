@@ -1,0 +1,9 @@
+.RegisterForm {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.RegisterForm * {
+    margin-top: 5px;
+}

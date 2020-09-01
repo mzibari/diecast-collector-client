@@ -1,0 +1,9 @@
+.LoginForm{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.LoginForm *{
+    margin-top: 5px;
+}

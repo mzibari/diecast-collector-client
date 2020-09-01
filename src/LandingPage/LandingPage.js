@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
+import LoginForm from '../LoginForm/LoginForm'
+import RegisterForm from '../RegisterForm/RegisterForm'
 import './LandingPage.css'
+
 
 export default class LandingPage extends Component {
 
     render() {
         return (
-            <>
+            <div className='landingPage'>
                 <h1 className='landing-page-header'>
                     Diecast Collector
                 </h1>
@@ -18,29 +21,11 @@ export default class LandingPage extends Component {
                 </section>
 
                 <section className='landing-page-register-login'>
-                    <h2>Login</h2>
-                    <form id='login' className='LoginFrom'
-                        onSubmit={this.handleSubmitBasicAuth}>
-                        <input type='username' autoComplete='false' name='username' className='login-input' placeholder='username' required />
-                        <input type='password' autoComplete='false' name='password' className='login-input' placeholder='password' required />
-                        <span name='error' id='error'></span>
-
-                        <button type='submit' className='login-button'>Log in</button>
-
-                    </form>
-                    or
-                    <h2>Register</h2>
-                    <form id='register' className='RegisterForm' onSubmit={this.handleNewUser}>
-                        <input type='text' autoComplete='false' id='user-name' name='user-name' className='register-input' placeholder='user name' required />
-                        <input type='email' autoComplete='false' id='email' name='email' className='register-input' placeholder='email' required />
-                        <input type='password' autoComplete='false' id='password' name='password' className='register-input' placeholder='password' required />
-                        <input type='password' autoComplete='false' id='confirm-password' name='confirm-password' className='register-input' placeholder='confirm password' required />
-
-                        <button type='submit' className='register-button'>Submit</button>
-                        <span id='registrationError' className='error'></span>
-                    </form>
+                    <LoginForm />
+                    <h3>or</h3>
+                    <RegisterForm />
                 </section>
-            </>
+            </ div>
         )
     }
 }
