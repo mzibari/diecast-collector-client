@@ -41,20 +41,20 @@ export default {
     'users':[
         {
             'id': '1',
-            'name': 'Mahmood',
+            'username': 'Mahmood',
             'email': 'mahmood@mahmood.com',
             'password': 'password1',
         },
         
         {
             'id': '2',
-            'name': 'Katie',
+            'username': 'Katie',
             'email': 'katie@katie.com',
             'password': 'password1',
         },
         {
             'id': '3',
-            'name': 'Falafel',
+            'username': 'Falafel',
             'email': 'falafel@mahmood.com',
             'password': 'password1',
         },

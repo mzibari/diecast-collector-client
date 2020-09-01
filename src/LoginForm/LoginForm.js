@@ -1,7 +1,32 @@
 import React, { Component } from 'react'
+import TokenService from '../services/token-service'
+import ApiContext from '../ApiContext'
 import './LoginForm.css'
 
+
 export default class LoginFrom extends Component {
+
+    static contextType = ApiContext
+
+    handleUserVerification = (username, password) => {
+        const user = this.context.users.find(entry => entry.username === username.value)
+        return (user && user.password === password.value)
+    }
+
+    handleSubmitBasicAuth = event => {
+        event.preventDefault()
+        const { username, password } = event.target
+        if (this.handleUserVerification(username, password)) {
+            TokenService.saveAuthToken(
+                TokenService.makeBasicAuthToken(username.value, password.value)
+            )
+
+            username.value = ''
+            password.value = ''
+            this.props.history.push('/')
+        }
+        else document.getElementById('error').innerHTML = 'Wrong username or password'
+    }
     render() {
         return (
             <>
