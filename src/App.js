@@ -21,12 +21,20 @@ export default class App extends Component {
       ...store
     })
   }
+
+  handleAddUser = user => {
+    this.setState =({
+      users: user, ...this.state.users
+    })
+    console.log(`user added ${this.state.users}`)
+  }
   render() {
     const value = {
       cars: this.state.cars,
       users: this.state.users,
       reviews: this.state.reviews,
       imgs: this.state.imgs,
+      addUser: this.handleAddUser,
     }
     return (
       <main className='App'>
