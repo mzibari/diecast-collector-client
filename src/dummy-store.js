@@ -67,5 +67,21 @@ export default {
             'review': 'One of the most iconic cars in the nineties',
         },
     ],
-    'imgs':[],
+    'images':[
+        {
+            'id': '1',
+            'carId': '1',
+            'image': '../images/bmw.jpg'
+        },
+        {
+            'id': '2',
+            'carId': '3',
+            'image': '../images/mini-cooper.jpg'
+        },
+        {
+            'id': '3',
+            'carId': '4',
+            'image': '../images/mustang.jpg'
+        },
+    ],
 }

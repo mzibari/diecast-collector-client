@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import LoginForm from '../LoginForm/LoginForm'
 import RegisterForm from '../RegisterForm/RegisterForm'
+import PublicOnlyRoute from '../ProtectedRoute/PublicOnlyRoute'
 import './LandingPage.css'
 
 
@@ -21,9 +22,9 @@ export default class LandingPage extends Component {
                 </section>
 
                 <section className='landing-page-register-login'>
-                    <LoginForm />
+                    <PublicOnlyRoute component={LoginForm} />
                     <h3>or</h3>
-                    <RegisterForm />
+                    <PublicOnlyRoute component={RegisterForm} />
                 </section>
             </ div>
         )

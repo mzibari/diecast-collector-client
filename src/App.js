@@ -5,6 +5,8 @@ import LandingPage from './LandingPage/LandingPage'
 import LoginForm from './LoginForm/LoginForm'
 import RegisterForm from './RegisterForm/RegisterForm'
 import ApiContext from './ApiContext'
+import PrivateRoute from './ProtectedRoute/PrivateRoute'
+import PublicOnlyRoute from './ProtectedRoute/PublicOnlyRoute'
 import store from './dummy-store'
 
 
@@ -13,7 +15,7 @@ export default class App extends Component {
     cars: [],
     users: [],
     reviews: [],
-    imgs: [],
+    images: [],
   }
 
   componentDidMount() {
@@ -26,14 +28,13 @@ export default class App extends Component {
     this.setState =({
       users: user, ...this.state.users
     })
-    console.log(`user added ${this.state.users}`)
   }
   render() {
     const value = {
       cars: this.state.cars,
       users: this.state.users,
       reviews: this.state.reviews,
-      imgs: this.state.imgs,
+      images: this.state.images,
       addUser: this.handleAddUser,
     }
     return (
@@ -41,8 +42,8 @@ export default class App extends Component {
         <ApiContext.Provider value={value}>
           <Route component={Nav} />
           <Route exact path='/' component={LandingPage} />
-          <Route exact path='/register' component={RegisterForm} />
-          <Route exact path='/login' component={LoginForm} />
+          <PublicOnlyRoute exact path='/register' component={RegisterForm} />
+          <PublicOnlyRoute exact path='/login' component={LoginForm} />
         </ApiContext.Provider>
       </main>
     )
