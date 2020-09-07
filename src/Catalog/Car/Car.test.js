@@ -5,6 +5,6 @@ import Car from './Car'
 //Smoke test
 it('Renders without problems', () => {
     const div = document.createElement('div')
-    ReactDOM.render(<Car />, div)
+    ReactDOM.render(JSON.stringify(<Car />), div)
     ReactDOM.unmountComponentAtNode(div)
 }) 
