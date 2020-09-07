@@ -44,6 +44,7 @@ export default {
             'username': 'Mahmood',
             'email': 'mahmood@mahmood.com',
             'password': 'password1',
+            'admin': true,
         },
         
         {
@@ -51,12 +52,14 @@ export default {
             'username': 'Katie',
             'email': 'katie@katie.com',
             'password': 'password1',
+            'admin': false,
         },
         {
             'id': '3',
             'username': 'Falafel',
             'email': 'falafel@mahmood.com',
             'password': 'password1',
+            'admin': false,
         },
 
     ],
@@ -73,21 +76,21 @@ export default {
             'carId': '1',
             'name': 'BMW',
             'image': '/images/bmw.jpg',
-            'approved': 'true',
+            'approved': true,
         },
         {
             'id': '2',
             'carId': '3',
             'name': 'Mini Cooper',
             'image': '/images/mini-cooper.jpg',
-            'approved': 'true',
+            'approved': true,
         },
         {
             'id': '3',
             'carId': '4',
             'name': 'Mustang',
             'image': ' /images/mustang.jpg',
-            'approved': 'false',
+            'approved': false,
         },
     ],
 }

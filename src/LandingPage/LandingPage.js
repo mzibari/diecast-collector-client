@@ -3,10 +3,14 @@ import LoginForm from '../LoginForm/LoginForm'
 import RegisterForm from '../RegisterForm/RegisterForm'
 import PublicOnlyRoute from '../ProtectedRoute/PublicOnlyRoute'
 import './LandingPage.css'
+import TokenService from '../services/token-service'
 
 
 export default class LandingPage extends Component {
 
+    state = {
+        isUserLoggedIn: TokenService.hasAuthToken()
+    }
     render() {
         return (
             <div className='landingPage'>
@@ -23,7 +27,7 @@ export default class LandingPage extends Component {
 
                 <section className='landing-page-register-login'>
                     <PublicOnlyRoute component={LoginForm} />
-                    <h3>or</h3>
+                    <h3>{this.state.isUserLoggedIn? '' : 'or'}</h3>
                     <PublicOnlyRoute component={RegisterForm} />
                 </section>
             </ div>

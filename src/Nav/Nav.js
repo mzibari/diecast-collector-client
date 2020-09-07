@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
+import TokenService from '../services/token-service'
 import './Nav.css'
 
 export default class Nav extends Component {
     state = {
-        isBurgerShown: false
+        isBurgerShown: false,
+        isUserLoggedIn: TokenService.hasAuthToken()
     }
 
     handleBurger = () => {
@@ -34,9 +36,18 @@ export default class Nav extends Component {
     }
     renderLogin = () => {
         this.setState({
-            isBurgerShown: false
+            isBurgerShown: false,
+            isUserLoggedIn: true
         })
         this.props.history.push('/login')
+    }
+    renderLogout = () => {
+        this.setState({
+            isBurgerShown: false,
+            isUserLoggedIn: false
+        })
+        TokenService.clearAuthToken()
+        this.props.history.push('/')
     }
     renderRegister = () => {
         this.setState({
@@ -45,6 +56,7 @@ export default class Nav extends Component {
         this.props.history.push('/register')
     }
     render() {
+        console.log(this.state.isUserLoggedIn)
         return (
             <nav>
                 <label htmlFor='toggle' className='burger'>☰</label>
@@ -52,7 +64,7 @@ export default class Nav extends Component {
                 <div id='toggled-menu' className={this.state.isBurgerShown ? 'show-menu menu' : 'hide-menu menu'}>
                     <button className='home' onClick={this.renderHome}>Home</button>
                     <button className='catalog' onClick={this.renderCatalog}>Catalog</button>
-                    <button className='login' onClick={this.renderLogin}>Login</button>
+                    <button className='login' onClick={this.state.isUserLoggedIn ? this.renderLogout : this.renderLogin}>{this.state.isUserLoggedIn ? 'Logout' : 'Login'}</button>
                     <button className='register' onClick={this.renderRegister}>Register</button>
                 </div>
             </nav>

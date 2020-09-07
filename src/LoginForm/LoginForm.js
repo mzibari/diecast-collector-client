@@ -35,7 +35,7 @@ export default class LoginFrom extends Component {
                 username: '',
                 password: '',
             })
-            this.props.history.push('/')
+            this.props.history.push('/catalog')
         }
         else document.getElementById('error').innerHTML = 'Wrong username or password'
     }
