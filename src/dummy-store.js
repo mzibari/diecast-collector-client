@@ -6,7 +6,7 @@ export default {
             'make': 'Nissan',
             'year': '1992',
             'desc': 'great japanese car',
-            'manufacture': 'HotWheels',
+            'manufacturer': 'HotWheels',
             'scale': '1/64',
         },
         {
@@ -15,7 +15,7 @@ export default {
             'make': 'Toyota',
             'year': '1992',
             'desc': 'great japanese car',
-            'manufacture': 'HotWheels',
+            'manufacturer': 'HotWheels',
             'scale': '1/64',
         },
         {
@@ -24,7 +24,7 @@ export default {
             'make': 'Audi',
             'year': '2010',
             'desc': 'great german car',
-            'manufacture': 'HotWheels',
+            'manufacturer': 'HotWheels',
             'scale': '1/64',
         },
         {
@@ -33,7 +33,7 @@ export default {
             'make': 'DMC',
             'year': '1981',
             'desc': 'great american car',
-            'manufacture': 'HotWheels',
+            'manufacturer': 'HotWheels',
             'scale': '1/64',
         },
 
@@ -71,17 +71,23 @@ export default {
         {
             'id': '1',
             'carId': '1',
-            'image': '../images/bmw.jpg'
+            'name': 'BMW',
+            'image': '/images/bmw.jpg',
+            'approved': 'true',
         },
         {
             'id': '2',
             'carId': '3',
-            'image': '../images/mini-cooper.jpg'
+            'name': 'Mini Cooper',
+            'image': '/images/mini-cooper.jpg',
+            'approved': 'true',
         },
         {
             'id': '3',
             'carId': '4',
-            'image': '../images/mustang.jpg'
+            'name': 'Mustang',
+            'image': ' /images/mustang.jpg',
+            'approved': 'false',
         },
     ],
 }

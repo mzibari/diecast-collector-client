@@ -26,6 +26,24 @@ export default class Nav extends Component {
         })
         this.props.history.push('/')
     }
+    renderCatalog = () => {
+        this.setState({
+            isBurgerShown: false
+        })
+        this.props.history.push('/catalog')
+    }
+    renderLogin = () => {
+        this.setState({
+            isBurgerShown: false
+        })
+        this.props.history.push('/login')
+    }
+    renderRegister = () => {
+        this.setState({
+            isBurgerShown: false
+        })
+        this.props.history.push('/register')
+    }
     render() {
         return (
             <nav>
@@ -33,6 +51,9 @@ export default class Nav extends Component {
                 <input type='checkbox' onClick={this.handleBurger} id='toggle' />
                 <div id='toggled-menu' className={this.state.isBurgerShown ? 'show-menu menu' : 'hide-menu menu'}>
                     <button className='home' onClick={this.renderHome}>Home</button>
+                    <button className='catalog' onClick={this.renderCatalog}>Catalog</button>
+                    <button className='login' onClick={this.renderLogin}>Login</button>
+                    <button className='register' onClick={this.renderRegister}>Register</button>
                 </div>
             </nav>
         )

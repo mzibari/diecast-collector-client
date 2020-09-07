@@ -1,0 +1,22 @@
+@import '../../AppStyle.css';
+.car-image {
+    width: 100%
+}
+
+.model {
+    font-weight: bolder;
+}
+
+.car {
+    padding: 5px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--main-divs-color-1);
+}
+
+.car-image {
+    box-shadow: 0px 0px 1px 1px var(--main-divs-color-2);
+    margin: 5px 0px 5px 0px;
+    border-radius: 5px;
+}

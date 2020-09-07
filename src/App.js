@@ -4,8 +4,9 @@ import Nav from './Nav/Nav'
 import LandingPage from './LandingPage/LandingPage'
 import LoginForm from './LoginForm/LoginForm'
 import RegisterForm from './RegisterForm/RegisterForm'
+import Catalog from './Catalog/Catalog'
 import ApiContext from './ApiContext'
-import PrivateRoute from './ProtectedRoute/PrivateRoute'
+/* import PrivateRoute from './ProtectedRoute/PrivateRoute' */
 import PublicOnlyRoute from './ProtectedRoute/PublicOnlyRoute'
 import store from './dummy-store'
 
@@ -42,6 +43,7 @@ export default class App extends Component {
         <ApiContext.Provider value={value}>
           <Route component={Nav} />
           <Route exact path='/' component={LandingPage} />
+          <Route exact path='/catalog' component={Catalog} />
           <PublicOnlyRoute exact path='/register' component={RegisterForm} />
           <PublicOnlyRoute exact path='/login' component={LoginForm} />
         </ApiContext.Provider>
