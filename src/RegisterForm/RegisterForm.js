@@ -24,9 +24,9 @@ export default class RegisterFrom extends Component {
         const newUser = {
             username: xss(this.state.username),
             email: xss(this.state.email),
-            password: xss(this.state.password),
+            user_password: xss(this.state.password),
         }
-        if (newUser.password !== this.state.confirmPassword) document.getElementById('registrationError').innerHTML = 'Passwords do not match'
+        if (newUser.user_password !== this.state.confirmPassword) document.getElementById('registrationError').innerHTML = 'Passwords do not match'
         else {
             let doesUserExist = false
             this.context.users.forEach(user => {

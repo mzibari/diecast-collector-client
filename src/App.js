@@ -6,8 +6,8 @@ import LoginForm from './LoginForm/LoginForm'
 import RegisterForm from './RegisterForm/RegisterForm'
 import Catalog from './Catalog/Catalog'
 import ApiContext from './ApiContext'
-/* import PrivateRoute from './ProtectedRoute/PrivateRoute' */
 import PublicOnlyRoute from './ProtectedRoute/PublicOnlyRoute'
+import config from './config'
 import store from './dummy-store'
 
 
@@ -20,16 +20,64 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    this.setState({
-      ...store
-    })
+    Promise.all([
+      fetch(`${config.API_ENDPOINT}/cars`),
+      fetch(`${config.API_ENDPOINT}/users`),
+      fetch(`${config.API_ENDPOINT}/reviews`),
+      fetch(`${config.API_ENDPOINT}/images`),
+    ])
+      .then(([carsRes, usersRes, reviewsRes, imagesRes]) => {
+        if (!carsRes.ok)
+          return carsRes.json().then(e => Promise.reject(e))
+        if (!usersRes.ok)
+          return usersRes.json().then(e => Promise.reject(e))
+        if (!reviewsRes.ok)
+          return reviewsRes.json().then(e => Promise.reject(e))
+        if (!imagesRes.ok)
+          return imagesRes.json().then(e => Promise.reject(e))
+
+        return Promise.all([
+
+          carsRes.json(),
+          usersRes.json(),
+          reviewsRes.json(),
+          imagesRes.json(),
+        ])
+      })
+      .then(([cars, users, reviews, images]) => {
+        this.setState({ cars, users, reviews, images })
+      })
+      .catch(error => {
+        console.error({ error })
+      })
   }
 
   handleAddUser = user => {
-    this.setState =({
-      users: user, ...this.state.users
+    fetch(`${config.API_ENDPOINT}/users`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(user),
     })
+      .then(res => {
+        if (!res.ok)
+          return res.json().then(e => Promise.reject(e))
+        return res.json()
+      })
+      .then(user => {
+        this.setState({
+          users: [
+            ...this.state.users,
+            user
+          ]
+        })
+      })
+      .catch(error => {
+        console.error({ error })
+      })
   }
+  
   render() {
     const value = {
       cars: this.state.cars,

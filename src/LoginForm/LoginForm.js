@@ -9,31 +9,31 @@ export default class LoginFrom extends Component {
     // Using state to get login credentials
     state = {
         username: {},
-        password: {},
+        user_password: {},
     }
 
     // SetState to store user credentials
     handleUsernameChange = e => this.setState({ username: e.target.value })
-    handlePasswordChange = e => this.setState({ password: e.target.value })
+    handlePasswordChange = e => this.setState({ user_password: e.target.value })
 
     // Verifying user credentials
-    handleUserVerification = (username, password) => {
+    handleUserVerification = (username, user_password) => {
         const user = this.context.users.find(entry => entry.username === username)
-        return (user && user.password === password)
+        return (user && user.user_password === user_password)
     }
 
     // Using TokenService to store user login for the session
     handleSubmitBasicAuth = event => {
         event.preventDefault()
-        const { username, password } = this.state
-        if (this.handleUserVerification(username, password)) {
+        const { username, user_password } = this.state
+        if (this.handleUserVerification(username, user_password)) {
             TokenService.saveAuthToken(
-                TokenService.makeBasicAuthToken(username.value, password.value)
+                TokenService.makeBasicAuthToken(username.value, user_password.value)
             )
 
             this.setState({
                 username: '',
-                password: '',
+                user_password: '',
             })
             this.props.history.push('/catalog')
         }
