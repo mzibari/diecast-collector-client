@@ -16,7 +16,7 @@ export default class AddItem extends Component {
     }
 
     handleChangeModel = e => this.setState({ model: e.target.value })
-    handleChangeMake = e => this.setState({ make: e.target.value })
+    handleChangeMake = e => this.setState({ make: e.target.value  })
     handleChangeYear = e => this.setState({ year: e.target.value })
     handleChangeDescription = e => this.setState({ description: e.target.value })
     handleChangeManufacturer = e => this.setState({ manufacturer: e.target.value })
@@ -33,6 +33,7 @@ export default class AddItem extends Component {
             manufacturer: xss(this.state.manufacturer) || '',
             scale: xss(this.state.scale) || '',
         }
+        console.log(car)
         this.context.addCar(car)
         this.props.history.push('/catalog')
     }
@@ -44,9 +45,9 @@ export default class AddItem extends Component {
                 <h2>Add Car</h2>
                 <form id='Add Car' onSubmit={this.handleSubmit}>
 
-                    <input onChange={this.handleChangeModel} type='text' className='add-car-input' name='make' placeholder='make' required />
-
                     <input onChange={this.handleChangeModel} type='text' className='add-car-input' name='model' placeholder='model' required />
+
+                    <input onChange={this.handleChangeMake} type='text' className='add-car-input' name='make' placeholder='make' required />
 
                     <input onChange={this.handleChangeYear} type='number' min="1900" max="2022" step="1" className='add-car-input' name='year' placeholder='year' required />
 
@@ -57,7 +58,7 @@ export default class AddItem extends Component {
                     <input onChange={this.handleChangeScale} type='text' className='add-car-input' name='scale' placeholder='scale' />
 
                     <div>
-                        <button type='submit'>Add item</button>
+                        <button type='submit'>Add car</button>
                         <button type='reset'>Reset</button>
                     </div>
                 </form>

@@ -19,7 +19,7 @@ export default class Car extends Component {
                 <span className='model'>{(this.props.car? this.props.car.model : null)}</span>
                 <span className='make'>Make: {(this.props.car? this.props.car.make : null)}</span>
                 <span className='year'>Year: {(this.props.car? this.props.car.year : null)}</span>
-                <span className='desc'>Description: {(this.props.car? this.props.car.desc : null)}</span>
+                <span className='desc'>Description: {(this.props.car? this.props.car.description : null)}</span>
                 <span className='manufacturer'>Manufacturer: {(this.props.car? this.props.car.manufacturer : null)}</span>
                 <span className='scale'>Scale: {(this.props.car? this.props.car.scale : null)}</span>
                 {images}
