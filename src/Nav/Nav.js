@@ -56,7 +56,6 @@ export default class Nav extends Component {
         this.props.history.push('/register')
     }
     render() {
-        console.log(this.state.isUserLoggedIn)
         return (
             <nav>
                 <label htmlFor='toggle' className='burger'>☰</label>

@@ -19,7 +19,7 @@ export default class Catalog extends Component {
         this.props.history.push('/catalog')
     }
     render() {
-        
+        const isUserLoggedIn = TokenService.hasAuthToken() 
         const cars = this.context.cars.map((car, i) => {
             const imgs = this.context.images.filter((img => img.carId === car.id))
             return (
@@ -33,7 +33,7 @@ export default class Catalog extends Component {
         return (
             <section className='catalog-section page'>
                 {cars}
-                <button onClick={this.redirectAddCar}>add car</button>
+                {isUserLoggedIn? <button onClick={this.redirectAddCar}>add car</button> : <></>}
             </section>
         )
     }

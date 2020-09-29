@@ -24,7 +24,6 @@ export default class AddItem extends Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        const usrid = TokenService.getAuthUserId(this.context.users)
         const car = {
             model: xss(this.state.model),
             make: xss(this.state.make),
@@ -33,7 +32,6 @@ export default class AddItem extends Component {
             manufacturer: xss(this.state.manufacturer) || '',
             scale: xss(this.state.scale) || '',
         }
-        console.log(car)
         this.context.addCar(car)
         this.props.history.push('/catalog')
     }
