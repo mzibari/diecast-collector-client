@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './Car.css'
-/* import config from '../../config' */
+import config from '../../config'
 import ApiContext from '../../ApiContext'
 
 export default class Car extends Component {
@@ -8,6 +8,26 @@ export default class Car extends Component {
 
     
     handleClickDelete = e => {
+        e.preventDefault()
+        const carId = this.props.car.id
+        fetch(`${config.API_ENDPOINT}/cars/${carId}`, {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json'
+            },
+        })
+            .then(res => {
+                if (!res.ok)
+                    return res.json().then(e => Promise.reject(e))
+                return res
+            })
+            .then(() => {
+                this.context.removeCar(carId)
+                this.props.redirectToPantry()
+            })
+            .catch(error => {
+                console.error({ error })
+            })
     }
     render() {
         const images = (this.props.imgs? this.props.imgs.map((img, i) => {

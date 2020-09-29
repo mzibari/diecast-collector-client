@@ -8,6 +8,7 @@ import Catalog from './Catalog/Catalog'
 import AddCar from './AddCar/AddCar'
 import ApiContext from './ApiContext'
 import PublicOnlyRoute from './ProtectedRoute/PublicOnlyRoute'
+import PrivateOnlyRoute from './ProtectedRoute/PrivateRoute'
 import config from './config'
 
 
@@ -105,6 +106,12 @@ export default class App extends Component {
       })
   }
 
+  handleRemoveCar = carId => {
+    this.setState({ 
+      cars: this.state.cars.filter(car => car.id != carId)
+    })
+  }
+
   render() {
     const value = {
       cars: this.state.cars,
@@ -113,6 +120,7 @@ export default class App extends Component {
       images: this.state.images,
       addUser: this.handleAddUser,
       addCar: this.handleAddCar,
+      removeCar: this.handleRemoveCar,
     }
     return (
       <main className='App'>
@@ -120,7 +128,7 @@ export default class App extends Component {
           <Route component={Nav} />
           <Route exact path='/' component={LandingPage} />
           <Route exact path='/catalog' component={Catalog} />
-          <Route exact path='/addcar' component={AddCar} />
+          <PrivateOnlyRoute exact path='/addcar' component={AddCar} />
           <PublicOnlyRoute exact path='/register' component={RegisterForm} />
           <PublicOnlyRoute exact path='/login' component={LoginForm} />
         </ApiContext.Provider>
