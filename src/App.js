@@ -13,12 +13,14 @@ import config from './config'
 
 
 
+
 export default class App extends Component {
   state = {
     cars: [],
     users: [],
     reviews: [],
     images: [],
+    carImages: [],
   }
 
   componentDidMount() {
@@ -52,6 +54,25 @@ export default class App extends Component {
       .catch(error => {
         console.error({ error })
       })
+
+    this.state.images.map((img, i) => {
+      Promise.all(
+        fetch(`${config.API_ENDPOINT}/images/${img.id}`)
+      )
+        .then((carImg) => {
+          if (!carImg.ok)
+            return carImg.json().then(e => Promise.reject(e))
+
+          return Promise.all([
+            carImg
+          ])
+        })
+        .then((carImg) => {
+          this.setState({
+            carImages: carImg
+          })
+        })
+    })
   }
 
   handleAddUser = user => {
@@ -107,8 +128,8 @@ export default class App extends Component {
   }
 
   handleRemoveCar = carId => {
-    this.setState({ 
-      cars: this.state.cars.filter(car => car.id != carId)
+    this.setState({
+      cars: this.state.cars.filter(car => car.id !== carId)
     })
   }
 
@@ -118,6 +139,7 @@ export default class App extends Component {
       users: this.state.users,
       reviews: this.state.reviews,
       images: this.state.images,
+      carImages: this.state.carImages,
       addUser: this.handleAddUser,
       addCar: this.handleAddCar,
       removeCar: this.handleRemoveCar,

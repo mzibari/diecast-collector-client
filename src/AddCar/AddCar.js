@@ -16,7 +16,7 @@ export default class AddItem extends Component {
     }
 
     handleChangeModel = e => this.setState({ model: e.target.value })
-    handleChangeMake = e => this.setState({ make: e.target.value  })
+    handleChangeMake = e => this.setState({ make: e.target.value })
     handleChangeYear = e => this.setState({ year: e.target.value })
     handleChangeDescription = e => this.setState({ description: e.target.value })
     handleChangeManufacturer = e => this.setState({ manufacturer: e.target.value })
@@ -41,7 +41,7 @@ export default class AddItem extends Component {
         return (
             <section className='add-car-section page'>
                 <h2>Add Car</h2>
-                <form id='Add Car' onSubmit={this.handleSubmit}>
+                <form id='add-car-form' onSubmit={this.handleSubmit}>
 
                     <input onChange={this.handleChangeModel} type='text' className='add-car-input' name='model' placeholder='model' required />
 
@@ -55,10 +55,9 @@ export default class AddItem extends Component {
 
                     <input onChange={this.handleChangeScale} type='text' className='add-car-input' name='scale' placeholder='scale' />
 
-                    <div>
-                        <button type='submit'>Add car</button>
-                        <button type='reset'>Reset</button>
-                    </div>
+                    <button class='add-car-button' type='submit'>Add car</button>
+                    <button class='add-car-button' type='reset'>Reset</button>
+
                 </form>
             </section>
         )

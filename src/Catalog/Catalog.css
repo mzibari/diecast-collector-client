@@ -1,5 +1,20 @@
+@import '../AppStyle.css';
+
+
 .car-ul{
     list-style-type: none;
     padding: 10px;
 }
 
+.add-car{
+    font-size: 25px;
+    margin-top: 5px;
+    line-height: 40px;
+    padding-left: 5px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom: 25%;
+}

@@ -8,7 +8,7 @@
 }
 
 .car {
-    padding: 5px;
+    padding: 5px 15px 10px 15px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -18,5 +18,19 @@
 .car-image {
     box-shadow: 0px 0px 1px 1px var(--main-divs-color-2);
     margin: 5px 0px 5px 0px;
+    border-radius: 5px;
+}
+
+.model{
+    font-family: var(--headers-font);
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.car__delete{
+    margin-top: 5px;
+    line-height: 25px;
+    padding-left: 5px;
+    border: 1px solid gray;
     border-radius: 5px;
 }

@@ -7,3 +7,11 @@
 .RegisterForm * {
     margin-top: 5px;
 }
+
+.register-input, .register-button{
+    line-height: 25px;
+    padding-left: 5px;
+    border: 1px solid gray;
+    border-radius: 5px;
+  }
+  

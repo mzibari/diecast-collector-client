@@ -1,0 +1,21 @@
+@import '../AppStyle.css';
+.add-car-section {
+    background-color: var(--main-divs-color-1);
+    margin: 20px;
+    padding: 5px 15px 35px 15px;
+    border-radius: 5px;
+}
+
+#add-car-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-car-input , .add-car-button{
+    line-height: 25px;
+    padding-left: 5px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+

@@ -1,4 +1,15 @@
+@import '../AppStyle.css';
+
 .landingPage{
     margin: 20px;
+    padding: 5px 15px 5px 15px;
+    background-color: var(--main-divs-color-1);
+    font-family: var(--content-font);
+    border-radius: 5px;
 }
 
+@media screen and (min-width: 480px) {
+}
+
+@media screen and (min-width: 768px) {
+}
