@@ -4,11 +4,11 @@ You can visit the app here
 [Live Link](https://diecast-collector-client.vercel.app/)
 
 ## Summary
-The app lets the diecast collectors have a library of diecast models
-User can start by registering an account, then log in with said account.  
-User can start adding cars  
-User can delete cars
-User can view a catalog of all cars   
+The app lets the diecast collectors have a library of diecast models  
+User can start by registering an account, then log in with said account    
+User can start adding cars    
+User can delete cars   
+User can view a catalog of all cars     
 
 ## Technologies Used :
 1. Javascript
