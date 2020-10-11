@@ -23,6 +23,11 @@ export default class LandingPage extends Component {
                         Pictures shared on this website need to have an artistic angle to be approved.
                         All articles can be viewed by anyone, you need to be a registered user to contribute to our content.
                     </p>
+                    <p className='demo-paragraph'>
+                        <span>You can use Demo user</span>
+                        <span>Username: demo-user</span>
+                        <span>Password: demo1</span>
+                    </p>
                 </section>
 
                 <section className='landing-page-register-login'>

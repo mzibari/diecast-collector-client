@@ -8,6 +8,15 @@
     border-radius: 5px;
 }
 
+.demo-paragraph{
+    display: flex;
+    flex-direction: column;
+}
+
+.demo-paragraph *{
+    margin-bottom: 10px;
+}
+
 @media screen and (min-width: 480px) {
 }
 

@@ -12,7 +12,7 @@ export default class Car extends Component {
         const carId = this.props.car.id
 
     }
-    
+
     handleClickDelete = e => {
         e.preventDefault()
         const carId = this.props.car.id
@@ -41,12 +41,12 @@ export default class Car extends Component {
         })) */
         return (
             <div className='car'>
-                <span className='model car-display'>{(this.props.car? this.props.car.model : null)}</span>
-                <span className='make car-display'>Make: {(this.props.car? this.props.car.make : null)}</span>
-                <span className='year car-display'>Year: {(this.props.car? this.props.car.year : null)}</span>
-                <span className='desc car-display'>Description: {(this.props.car? this.props.car.description : null)}</span>
-                <span className='manufacturer car-display'>Manufacturer: {(this.props.car? this.props.car.manufacturer : null)}</span>
-                <span className='scale car-display'>Scale: {(this.props.car? this.props.car.scale : null)}</span>
+                <span className='model car-display'>{(this.props.car ? this.props.car.model : null)}</span>
+                <span className='make car-display'>Make: {(this.props.car ? this.props.car.make : null)}</span>
+                <span className='year car-display'>Year: {(this.props.car ? this.props.car.year : null)}</span>
+                <span className='desc car-display'>Description: {(this.props.car ? this.props.car.description : null)}</span>
+                {(this.props.car.manufacturer !== ('[object Object]') ? <span className='manufacturer car-display'>Manufacturer: {this.props.car.manufacturer}</span>: <></>) }
+                {(this.props.car.scale !== ('[object Object]') ? <span className='scale car-display'>Scale: {this.props.car.scale }</span> : <></>)}
                 <button
                     className='car__delete'
                     type='button'

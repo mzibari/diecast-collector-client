@@ -149,7 +149,7 @@ export default class App extends Component {
         <ApiContext.Provider value={value}>
           <Route component={Nav} />
           <Route exact path='/' component={LandingPage} />
-          <Route exact path='/catalog' component={Catalog} />
+          <PrivateOnlyRoute exact path='/catalog' component={Catalog} />
           <PrivateOnlyRoute exact path='/addcar' component={AddCar} />
           <PublicOnlyRoute exact path='/register' component={RegisterForm} />
           <PublicOnlyRoute exact path='/login' component={LoginForm} />
