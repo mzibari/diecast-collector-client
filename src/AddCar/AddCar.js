@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import './AddCar.css'
 import ApiContext from '../ApiContext'
-import TokenService from '../services/token-service'
 import xss from 'xss'
 
 export default class AddItem extends Component {

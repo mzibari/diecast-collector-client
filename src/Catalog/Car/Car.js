@@ -2,16 +2,9 @@ import React, { Component } from 'react'
 import './Car.css'
 import config from '../../config'
 import ApiContext from '../../ApiContext'
-import AddImage from './AddImage/AddImage'
 
 export default class Car extends Component {
     static contextType = ApiContext
-
-    handleClickAddImg = e => {
-        e.preventDefault()
-        const carId = this.props.car.id
-
-    }
 
     handleClickDelete = e => {
         e.preventDefault()
@@ -39,9 +32,6 @@ export default class Car extends Component {
         }
     }
     render() {
-        /* const carImages = (this.props.carImages.map((img, i) => {
-            return <img className='car-image' key={i} alt={i} src={img} ></img>
-        })) */
         return (
             <div className='car'>
                 <span className='model car-display'>{(this.props.car ? this.props.car.model : null)}</span>
@@ -56,13 +46,7 @@ export default class Car extends Component {
                     onClick={this.handleClickDelete}>
                     remove <span className='bin'>&#x1F5D1;</span>
                 </button>
-                {/* <button
-                    className='add__img'
-                    type='button'
-                    onClick={this.handleClickAddImg}>
-                    add image <span className='add'>&#x1F5D1;</span>
-                </button>
-                    <AddImage carId={this.props.car.id}/> */}
+                
             </div>
         )
 

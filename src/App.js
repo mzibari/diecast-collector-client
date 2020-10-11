@@ -19,8 +19,6 @@ export default class App extends Component {
     cars: [],
     users: [],
     reviews: [],
-    images: [],
-    carImages: [],
   }
 
   componentDidMount() {
@@ -28,7 +26,6 @@ export default class App extends Component {
       fetch(`${config.API_ENDPOINT}/cars`),
       fetch(`${config.API_ENDPOINT}/users`),
       fetch(`${config.API_ENDPOINT}/reviews`),
-      fetch(`${config.API_ENDPOINT}/images`),
     ])
       .then(([carsRes, usersRes, reviewsRes, imagesRes]) => {
         if (!carsRes.ok)
@@ -37,42 +34,20 @@ export default class App extends Component {
           return usersRes.json().then(e => Promise.reject(e))
         if (!reviewsRes.ok)
           return reviewsRes.json().then(e => Promise.reject(e))
-        if (!imagesRes.ok)
-          return imagesRes.json().then(e => Promise.reject(e))
 
         return Promise.all([
 
           carsRes.json(),
           usersRes.json(),
           reviewsRes.json(),
-          imagesRes.json(),
         ])
       })
-      .then(([cars, users, reviews, images]) => {
-        this.setState({ cars, users, reviews, images })
+      .then(([cars, users, reviews]) => {
+        this.setState({ cars, users, reviews })
       })
       .catch(error => {
         console.error({ error })
       })
-
-    this.state.images.map((img, i) => {
-      Promise.all(
-        fetch(`${config.API_ENDPOINT}/images/${img.id}`)
-      )
-        .then((carImg) => {
-          if (!carImg.ok)
-            return carImg.json().then(e => Promise.reject(e))
-
-          return Promise.all([
-            carImg
-          ])
-        })
-        .then((carImg) => {
-          this.setState({
-            carImages: carImg
-          })
-        })
-    })
   }
 
   handleAddUser = user => {
@@ -138,8 +113,6 @@ export default class App extends Component {
       cars: this.state.cars,
       users: this.state.users,
       reviews: this.state.reviews,
-      images: this.state.images,
-      carImages: this.state.carImages,
       addUser: this.handleAddUser,
       addCar: this.handleAddCar,
       removeCar: this.handleRemoveCar,

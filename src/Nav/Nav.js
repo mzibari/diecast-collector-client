@@ -37,17 +37,19 @@ export default class Nav extends Component {
     renderLogin = () => {
         this.setState({
             isBurgerShown: false,
-            isUserLoggedIn: true
+            isUserLoggedIn: TokenService.hasAuthToken()
         })
         this.props.history.push('/login')
+        return 'Logout'
     }
     renderLogout = () => {
+        TokenService.clearAuthToken()
         this.setState({
             isBurgerShown: false,
-            isUserLoggedIn: false
+            isUserLoggedIn: TokenService.hasAuthToken()
         })
-        TokenService.clearAuthToken()
         this.props.history.push('/')
+        return 'Login'
     }
     renderRegister = () => {
         this.setState({
@@ -63,7 +65,7 @@ export default class Nav extends Component {
                 <div id='toggled-menu' className={this.state.isBurgerShown ? 'show-menu menu' : 'hide-menu menu'}>
                     <button className='home' onClick={this.renderHome}>Home</button>
                     <button className='catalog' onClick={this.renderCatalog}>Catalog</button>
-                    <button className='login' onClick={this.state.isUserLoggedIn ? this.renderLogout : this.renderLogin}>{this.state.isUserLoggedIn ? 'Logout' : 'Login'}</button>
+                    <button className='login' onClick={TokenService.hasAuthToken() ? this.renderLogout : this.renderLogin}>{this.state.isUserLoggedIn ? 'Logout' : 'Login'}</button>
                     <button className='register' onClick={this.renderRegister}>Register</button>
                 </div>
             </nav>
