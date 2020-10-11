@@ -2,10 +2,11 @@
 
 .landingPage{
     margin: 20px;
-    padding: 5px 15px 5px 15px;
+    padding: 5px 15px 40px 15px;
     background-color: var(--main-divs-color-1);
     font-family: var(--content-font);
     border-radius: 5px;
+    
 }
 
 .demo-paragraph{

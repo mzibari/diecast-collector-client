@@ -54,8 +54,8 @@ export default class AddItem extends Component {
 
                     <input onChange={this.handleChangeScale} type='text' className='add-car-input' name='scale' placeholder='scale' />
 
-                    <button class='add-car-button' type='submit'>Add car</button>
-                    <button class='add-car-button' type='reset'>Reset</button>
+                    <button className='add-car-button' type='submit'>Add car</button>
+                    <button className='add-car-button' type='reset'>Reset</button>
 
                 </form>
             </section>

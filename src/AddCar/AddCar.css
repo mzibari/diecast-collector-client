@@ -19,3 +19,18 @@
     margin-top: 5px;
 }
 
+@media screen and (min-width: 480px) {
+    .add-car-section {
+        width: 72%;
+        margin-left: 12%;
+        margin-right: 12%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .add-car-section {
+        width: 60%;
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+}
