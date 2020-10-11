@@ -33,4 +33,21 @@
     padding-left: 5px;
     border: 1px solid gray;
     border-radius: 5px;
+    width: 100px
+}
+
+@media screen and (min-width: 480px) {
+    .car {
+        width: 71%;
+        margin-left: 12%;
+        margin-right: 12%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .car {
+        width: 60%;
+        margin-left: 20%;
+        margin-right: 20%;
+    }
 }

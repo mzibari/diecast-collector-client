@@ -13,10 +13,25 @@
     margin-top: 5px;
 }
 
-.register-input, .register-button{
+.register-input, .register-button {
     line-height: 25px;
     padding-left: 5px;
     border: 1px solid gray;
     border-radius: 5px;
-  }
-  
+}
+
+@media screen and (min-width: 480px) {
+    .RegisterForm {
+        width: 72%;
+        margin-left: 12%;
+        margin-right: 12%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .RegisterForm {
+        width: 60%;
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+}

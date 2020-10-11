@@ -21,11 +21,10 @@ export default class Catalog extends Component {
     render() {
         const isUserLoggedIn = TokenService.hasAuthToken() 
         const cars = this.context.cars.map((car, i) => {
-            const imgs = this.context.images.filter((img => img.carId === car.id))
             return (
                 <ul className='car-ul' key={i}>
                     <li className='car-li' key={i}>
-                        <Car car={car} className='car-section' imgs={imgs} userId={this.loginUserId} key={i} />
+                        <Car car={car} className='car-section' userId={this.loginUserId} key={i} />
                     </li>
                 </ul>
             )
