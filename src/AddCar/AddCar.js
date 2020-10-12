@@ -29,7 +29,7 @@ export default class AddItem extends Component {
             year: xss(this.state.year),
             description: xss(this.state.description),
             manufacturer: xss(this.state.manufacturer) || '',
-            scale: xss(this.state.scale) || '',
+            scale: (this.state.scale ? xss(this.state.scale) : '' ),
         }
         this.context.addCar(car)
         this.props.history.push('/catalog')
@@ -54,7 +54,7 @@ export default class AddItem extends Component {
 
                     <input onChange={this.handleChangeScale} type='text' className='add-car-input' name='scale' placeholder='scale' />
 
-                    <button className='add-car-button' type='submit'>Add car</button>
+                    <button className='add-car-button' type='submit'>Add Car</button>
                     <button className='add-car-button' type='reset'>Reset</button>
 
                 </form>

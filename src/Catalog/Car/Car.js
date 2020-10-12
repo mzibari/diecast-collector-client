@@ -44,7 +44,7 @@ export default class Car extends Component {
                     className='car__delete'
                     type='button'
                     onClick={this.handleClickDelete}>
-                    remove <span className='bin'>&#x1F5D1;</span>
+                    Remove <span className='bin'>&#x1F5D1;</span>
                 </button>
                 
             </div>

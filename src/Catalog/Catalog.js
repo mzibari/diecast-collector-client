@@ -32,7 +32,7 @@ export default class Catalog extends Component {
         return (
             <section className='catalog-section page'>
                 {cars}
-                {isUserLoggedIn? <button className='add-car' onClick={this.redirectAddCar}>add car</button> : <></>}
+                {isUserLoggedIn? <button className='add-car' onClick={this.redirectAddCar}>Add Car</button> : <></>}
             </section>
         )
     }
