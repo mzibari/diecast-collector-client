@@ -3,7 +3,6 @@ nav {
     z-index: 9990;
     width: 100%;
     height: 40px;
-    background-color: var(--main-divs-color-1);
     color: var(--font-color-1);
     font-family: var(--headers-font);
     border-bottom: 1px solid var(--font-color-1);
@@ -54,12 +53,12 @@ nav {
 }
 
 .menu button {
+    background-color: var(--main-divs-color-3);
     text-decoration: none;
     line-height: 30px;
     display: block;
-    color: var(--font-color-1);
+    color: var(black);
     margin: 0;
-    background-color: var(--background-color-1);
     z-index: 9999;
     position: relative;
     top: -5px;
@@ -71,6 +70,7 @@ nav {
 }
 
 .burger {
+    color: black;
     font-size: 1.5em;
     cursor: pointer;
     width: 40px;
@@ -99,12 +99,13 @@ nav {
         display: flex;
         flex-direction: row;
     }
-    .menu button {
+    .menu button, .register {
+        background-color: rgba(0, 0, 0, 0);
         border: none;
         width: 25%;
         font-size: x-large;
         display: inline-block;
         height: 50px;
-        top: -50px
+        top: -50px;
     }
 }

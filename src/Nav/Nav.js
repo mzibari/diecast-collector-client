@@ -65,8 +65,8 @@ export default class Nav extends Component {
                 <div id='toggled-menu' className={this.state.isBurgerShown ? 'show-menu menu' : 'hide-menu menu'}>
                     <button className='home' onClick={this.renderHome}>Home</button>
                     <button className='catalog' onClick={this.renderCatalog}>Catalog</button>
-                    <button className='login' onClick={TokenService.hasAuthToken() ? this.renderLogout : this.renderLogin}>{this.state.isUserLoggedIn ? 'Logout' : 'Login'}</button>
-                    <button className='register' onClick={this.renderRegister}>Register</button>
+                    {(TokenService.hasAuthToken() ? <button className='logout' onClick={this.renderLogout}>Logout</button> : <button className='login' onClick={this.renderLogin}>Login</button>)}
+                    {(TokenService.hasAuthToken() ? <button className='register' onClick={this.renderRegister} disabled='true'>Register</button> : <button className='register' onClick={this.renderRegister} >Register</button>)}
                 </div>
             </nav>
         )
