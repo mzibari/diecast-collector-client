@@ -24,7 +24,6 @@ export default class Car extends Component {
                 })
                 .then(() => {
                     this.context.removeCar(carId)
-                    this.props.history.push('/catalog')
                 })
                 .catch(error => {
                     console.error({ error })
